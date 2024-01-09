@@ -19,7 +19,7 @@ const appendAlert = (message, type) => {
 const alertTrigger = document.getElementById('liveAlertBtn');
 if (alertTrigger) {
     alertTrigger.addEventListener('click', () => {
-        appendAlert('Nice, you triggered this alert message!', 'success');
+        appendAlert('Nice, you triggered this alert message!', 'primary');
     });
 }
 const api_key = "4f07bbc8-d9f5-4e6b-a58e-6f467c9c582f";
@@ -65,7 +65,7 @@ function renderWalkingRoutes(walkingRoutes, fromTo = [0, 9]) {
         rowName.textContent = walkingRoute.name.length <= maxLetters ? walkingRoute.name : walkingRoute.name.slice(0, maxLetters) + "...";
         rowDescription.textContent = walkingRoute.description.length <= maxLetters ? walkingRoute.description : walkingRoute.description.slice(0, maxLetters) + "...";
         rowMainObjects.textContent = walkingRoute.mainObject.length <= maxLetters ? walkingRoute.mainObject : walkingRoute.mainObject.slice(0, maxLetters) + "...";
-        rowSelect.innerHTML = `<button type="button" class="id-${walkingRoute.id} btn btn-walking-route btn-outline-success px-5" onclick="location.href='#pagination-walking-routes';">Выбрать</button>`;
+        rowSelect.innerHTML = `<button type="button" class="id-${walkingRoute.id} btn btn-walking-route btn-outline-primary px-5" onclick="location.href='#pagination-walking-routes';">Выбрать</button>`;
         setAttributesForTooltip(rowName, walkingRoute.name);
         setAttributesForTooltip(rowDescription, walkingRoute.description);
         setAttributesForTooltip(rowMainObjects, walkingRoute.mainObject);
@@ -365,7 +365,7 @@ function modalBtnSendHandler() {
     xhr.send(sendData);
     xhr.onload = () => {
         if (xhr.readyState == 4 && xhr.status == 200)
-            appendAlert(`Заявка №${xhr.response.id} успешно создана`, 'success');
+            appendAlert(`Заявка №${xhr.response.id} успешно создана`, 'primary');
         else
             appendAlert(`Ошибка ${xhr.response.error}`, 'danger');
     };
